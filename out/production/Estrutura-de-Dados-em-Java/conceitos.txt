@@ -1,0 +1,25 @@
+1) O que é um vetor?
+Vetor é uma estrutura de dados responsável por armazenar dados homogêneos, isto é, objetos de mesmo tipo.
+
+2) Para que serve um vetor?
+Armazenar uma lista de dados homogêneo
+
+3) Por que um vetor é chamado de Agregado Homogêneo de dados?
+Porque armazena apenas dados de mesmo tipo
+
+4) O que é uma estrutura?
+É um modo de organização. Quando falamos de organização de dados estamos nos referindo a uma forma de armazenamento e organização de modo que os dados em questão possam ser usados, manipulados mais 
+eficientemente.
+
+5) Como uma estrutura pode ser implementada em uma linguagem orientada a objetos?
+int [] array = new int[10];
+String states = new String[26];
+
+6) O que é um tipo Abstrato de Dados?
+TAD (Tipo Abstrato de Dados) - Visa desvincular o tipo de dado de sua implementação e para tanto utiliza encapsulamento. Está preocupado com  o que o algoritmo faz e não como ele faz.
+
+
+7) Quais são os elementos de um tipo Abstrato de Dados?
+
+1 - Dados armazenados. Ex: variáveis, vetores, ponteiros, entre outros.
+2 - Funções que manipulam os dados. Ex: operações, métodos, funções, serviços, etc.
