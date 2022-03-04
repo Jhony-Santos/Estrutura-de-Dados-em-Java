@@ -10,10 +10,10 @@ Porque armazena apenas dados de mesmo tipo
 4) O que é uma estrutura?
 É um modo de organização. Quando falamos de organização de dados estamos nos referindo a uma forma de armazenamento e organização de modo que os dados em questão possam ser usados, manipulados mais 
 eficientemente.
+Agregado heterogeneo construído através de classes
 
 5) Como uma estrutura pode ser implementada em uma linguagem orientada a objetos?
-int [] array = new int[10];
-String states = new String[26];
+Através de classes
 
 6) O que é um tipo Abstrato de Dados?
 TAD (Tipo Abstrato de Dados) - Visa desvincular o tipo de dado de sua implementação e para tanto utiliza encapsulamento. Está preocupado com  o que o algoritmo faz e não como ele faz.
