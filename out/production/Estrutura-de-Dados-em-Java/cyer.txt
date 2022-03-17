@@ -1,0 +1,23 @@
+splots
+malware -> lentidão do computador, navegador, aumento do uso da CPU, arquivos modificados, programas desconhecidos, programas se iniciam e se encerram sozinhos
+warnings
+cavalo de tróia
+spiware
+fishing - email falso
+APTs
+botnet
+
+firewall - previni que malwares se espelhem para outros dispositivos
+antivírus -
+anti-spawire
+
+
+redes sem fio:
+alterar senha do SSD
+não transmitir SSD
+conexões com fios
+VPN
+gerenciador de senhas
+autenticação de dois fatores
+cirptografia -> exemplos
+gateway e ISP
