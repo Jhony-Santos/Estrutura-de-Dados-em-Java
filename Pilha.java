@@ -1,7 +1,6 @@
 
 
 
-
 public class Pilha {
     public int topo;//defino o topo
     public String[] vetor; //a expressão de entrada
@@ -52,7 +51,14 @@ public class Pilha {
     }
     public static void main(String []args){
 
-    String expressao="(((1+2)-3)*6)";
+    //String expressao="(((1+2)-3)*6)}"; //-> invalida
+    //String expressao="([{a+b}+5])*2"; // -> valida
+    //String expressao= "([{}])]"; // -> invalida
+    //String expressao= "[]{}()"; //-> valida
+    //String expressao="[]{}("; //-> invalida
+        String expressao= "[[]{}()]"; //-> valida
+
+
     //Pilha pilha=new Pilha(expressao.length());
 
     Pilha pilha = new Pilha(expressao.length());//instanciei a classe
