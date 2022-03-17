@@ -46,13 +46,21 @@ public class Moda {
                 valorModa = numbers[cont];
             }
         }
-        return valorModa;
+
+        if(frequencia==1){
+
+            System.out.println("Moda de todos os elementos é igual a 1");
+            return -1;
+        }
+        else{
+            return valorModa;
+        }
     }
 
 
     public static void main(String[]args){
 
-        int numbers[] ={8,8,8,3,21,8,1,8,8,8,3,31,3,3,3,3};//length=6;
+        int numbers[] ={44,25,19,65,21,919,12,78,910,87,85,19,97,2,5,0};//length=6;
         Moda moda = new Moda();
         System.out.println(moda.findModa(numbers));
         //System.out.println(moda.calculateFrequency(numbers,5));
