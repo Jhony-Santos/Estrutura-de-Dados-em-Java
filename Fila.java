@@ -165,12 +165,14 @@ public class Fila {
 
 
 
-        Fila filaB = new Fila(5);
-        filaB.insere(5);
+
+        Fila filaB = new Fila(6);
+        filaB.insere(05);
         filaB.insere(15);
         filaB.insere(23);
         filaB.insere(55);
-        filaB.insere(62);
+        filaB.insere(75);
+
 
 
 
