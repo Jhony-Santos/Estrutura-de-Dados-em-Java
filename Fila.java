@@ -1,4 +1,5 @@
-
+import java.sql.SQLOutput;
+import java.util.Arrays;
 
 public class Fila {
     public int primeiro;
@@ -100,79 +101,122 @@ public class Fila {
 
     }
 
+    public void mostrarElementosDaFila() {
+        for (int elemento : dados) {
+            System.out.print(elemento + " ");
+        }
+        System.out.println();
+    }
+
+    public int filaPrimeiro() {
+        return dados[primeiro];
+    }
+
+    public int filaUltimo(){
+        return dados[ultimo];
+    }
+
+
+    public static Fila merge(Fila filaA, Fila filaB){
+
+       Fila filaC = new Fila(filaA.tamanho + filaB.tamanho);
+
+        int primeiroA = filaA.primeiro;
+        int primeiroB = filaB.primeiro;
+        int proximoC=0;
+
+
+        while(primeiroA < filaA.tamanho && primeiroB < filaB.tamanho)
+        {
+            if (filaA.dados[primeiroA] <= filaB.dados[primeiroB]){
+                filaC.dados[proximoC++]=filaA.dados[primeiroA++];
+            } else {
+                filaC.dados[proximoC++]=filaB.dados[primeiroB++];
+            }
+        }
+
+        while(primeiroA < filaA.tamanho)
+        {
+            filaC.dados[proximoC++] = filaA.dados[primeiroA++];
+
+        }
+
+        while(primeiroB < filaB.tamanho)
+        {
+            filaC.dados[proximoC++] = filaB.dados[primeiroB++];
+        }
+
+        return filaC;
+
+
+    }
+
+
+
 
     public static void main(String [] args) {
 
-        Fila filaA = new Fila(4);
+        Fila filaA = new Fila(7);
         filaA.insere(12);
         filaA.insere(35);
         filaA.insere(52);
         filaA.insere(64);
 
+
+
+
         Fila filaB = new Fila(5);
-        filaB.insere(05);
+        filaB.insere(5);
         filaB.insere(15);
         filaB.insere(23);
         filaB.insere(55);
+        filaB.insere(62);
 
 
 
-        Fila filamerge = null;
-        filamerge=filamerge.merge(filaA, filaB);
-        filamerge.mostrarElementos();
+        Fila filaC=Fila.merge(filaA,filaB );
+        filaC.mostrarElementosDaFila();
+
+
 
     }
 
-        public Fila merge(Fila filaA, Fila filaB ){
-
-            int tamanhoFilaC = filaA.tamanho + filaB.tamanho;
-            Fila filaC = new Fila(tamanhoFilaC);
+}
 
 
 
-            for(int contador=0; contador < tamanhoFilaC; contador++ )
-            {
+/* public Fila MergeFila(Fila filaA, Fila filaB ){
 
-                if(filaA.primeiro < filaB.primeiro)
+        int tamanhoFilaC = filaA.tamanho + filaB.tamanho;
+
+        for(int contador=0; contador < (tamanhoFilaC-1); contador++ )
+        {
+
+            if(filaA.filaVazia()== false && filaB.filaVazia()== false){
+
+                if(filaA.filaPrimeiro() < filaB.filaPrimeiro())
                 {
-                    filaC.insere(filaA.primeiro);
+                    this.insere(filaA.filaPrimeiro());
                     filaA.remove();
-                    //filaC.insere(filaA.remove());
 
                 }
-                else if ( filaA.primeiro >= filaB.primeiro){
-                    filaC.insere(filaB.primeiro);
+                else if (filaA.filaPrimeiro() > filaB.filaPrimeiro()){
+                    this.insere(filaB.filaPrimeiro());
                     filaB.remove();
-
-                    //filaC.insere(filaB.remove());
-                }
-                else if(filaA.filaVazia()){
-
-                    for (int i=0;i>filaB.tamanho;i++){
-                        filaC.insere(filaB.primeiro);
-                        filaB.remove();
-                        //filaC.insere(filaB.remove());
-                    }
-                }
-                else if (filaB.filaVazia()){
-                    for(int i=0;i > filaA.tamanho;i++){
-
-                        filaC.insere(filaA.primeiro);
-                        filaA.remove();
-                        //filaC.insere(filaA.remove());
-
-                    }
-
-
-
                 }
 
             }
 
-            return filaC;
+            else if(filaA.filaVazia() == true){
+               this.insere(filaB.filaPrimeiro());
+
+
+            }
+            else if (filaB.filaVazia() == true){
+                this.insere(filaA.filaPrimeiro());
+            }
+
         }
 
-    }
-
-
-
+        return this;
+    }*/
