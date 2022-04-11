@@ -117,7 +117,7 @@ public class Fila {
     }
 
 
-    public static Fila merge(Fila filaA, Fila filaB){
+    public static Fila merge(Fila filaA, Fila filaB) {
 
        Fila filaC = new Fila(filaA.tamanho + filaB.tamanho);
 
@@ -161,9 +161,6 @@ public class Fila {
         filaA.insere(35);
         filaA.insere(52);
         filaA.insere(64);
-
-
-
 
 
         Fila filaB = new Fila(6);
