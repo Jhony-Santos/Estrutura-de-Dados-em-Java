@@ -1,37 +1,23 @@
 package ListaEncadeada;
 
-public class No<T> {
+public class No {
 
-    private T elemento;
-    private No<T> proximo;
+    private int info; // informacao armazenada
+    private No prox; // ponteiro para o próximo elemento
 
-
-    public No(T elemento){
-        this.elemento=elemento;
+    public int getInfo() {
+        return info;
     }
 
-
-    public T getElemento() {
-        return elemento;
+    public void setInfo(int info) {
+        this.info = info;
     }
 
-    public void setElemento(T elemento) {
-        this.elemento = elemento;
+    public No getProx() {
+        return prox;
     }
 
-    public No<T> getProximo() {
-        return proximo;
-    }
-
-    public void setProximo(No<T> proximo) {
-        this.proximo = proximo;
-    }
-
-    @Override
-    public String toString() {
-        return "No{" +
-                "elemento=" + elemento +
-                ", proximo=" + proximo +
-                '}';
+    public void setProx(No prox) {
+        this.prox = prox;
     }
 }
