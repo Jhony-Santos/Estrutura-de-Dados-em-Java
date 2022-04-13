@@ -1,9 +1,11 @@
-package node;
+package ListaEncadeada;
 
-import node.Node;
+
 
 public class ListaEncadeada {
+
 	private Node lista;
+
 	public ListaEncadeada() {
 		lista = null;
 	}

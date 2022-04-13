@@ -1,52 +1,53 @@
-package node;
+package ListaEncadeada;
 
-import node.Node;
+import static jdk.nashorn.internal.runtime.regexp.joni.Syntax.Java;
 
 public class Node {
-	private Integer informacao;
+
+	private Integer info;
 	private Node proximo;
 	
 	public Node() {
-		informacao = null;
+		info = null;
 		proximo = null;
 	}
 	
 	public int getValue() {
-		if(informacao == null) {
+		if(info == null) {
 			return 0;
 		}else {
-			return informacao;
+			return info;
 		}
 	}
 	
 	public int topo() {
-		if(this.informacao == null) {
+		if(this.info == null) {
 			return 0;
 		}
 		if(this.proximo != null) {
 			return this.proximo.topo();
 		}else {
-			return this.informacao;
+			return this.info;
 		}
 	}
 	
 	public boolean vazia() {
-		if(this.informacao == null) {
+		if(this.info == null) {
 			return true;
 		}
 		return false;
 	}
 	
 	public void inserePrimeiro(int info){
-		if(this.informacao == null) {
-			this.informacao = info;
+		if(this.info == null) {
+			this.info = info;
 		}else {
-			int temp = this.informacao;
+			int temp = this.info;
 			
-			this.informacao = info;
+			this.info = info;
 			
 			Node tempNode = new Node();
-			tempNode.informacao = temp;
+			tempNode.info = temp;
 			tempNode.proximo = this.proximo;
 			
 			this.proximo = tempNode;
@@ -56,23 +57,46 @@ public class Node {
 	public void insereDepois(Node node,int info) {
 		Node encontrado = procuraNode(node);
 		if(encontrado == null) {
-			System.out.print("Valor n�o encontrado em insereDepois.");
+			System.out.print("Valor não encontrado em insereDepois.");
 		}else {
 			Node temp = new Node();
-			temp.informacao = info;
+			temp.info = info;
 			temp.proximo = encontrado.proximo;
 			
 			encontrado.proximo = temp;
 		}
+
 	}
+
+
+	public void remove_depois(Node no){
+		Node encontrar=procuraNode(no);
+		if(encontrar == null) {
+			System.out.print("Valor não encontrado em insereDepois.");
+		}
+		else{
+			if(no.proximo==null){
+				System.out.println("Não é possível remover pois é o último nó");
+			}
+			else
+			{
+				no.remove(no.proximo.info);
+				Node removido = no.remove(no.proximo.info);
+				System.out.println("Nó removido: " + removido);
+			}
+
+		}
+
+	}
+
 	
 	public void insereUltimo(int info) {
-		if(this.informacao == null) {
-			this.informacao = info;
+		if(this.info == null) {
+			this.info = info;
 		}else {
 			if(this.proximo == null) {
 				this.proximo = new Node();
-				this.proximo.informacao = info;
+				this.proximo.info = info;
 			}else {
 				this.proximo.insereUltimo(info); 
 			}
@@ -80,10 +104,10 @@ public class Node {
 	}
 	
 	public void insereOrdenado(int info) {
-		if(this.informacao == null) {
-			this.informacao = info;		
+		if(this.info == null) {
+			this.info = info;
 		}else {
-			if(this.informacao > info) {
+			if(this.info > info) {
 				this.inserePrimeiro(info);
 			}else {
 				if(this.proximo == null) {
@@ -96,11 +120,11 @@ public class Node {
 	}
 	
 	public Node procuraNode(Node node) {
-		if(this.informacao == null) {
+		if(this.info == null) {
 			return null;
 		}
 		
-		if(this.informacao.equals(node.informacao)) {
+		if(this.info.equals(node.info)) {
 			return this;
 		}else {
 			if(this.proximo == null) {
@@ -112,11 +136,11 @@ public class Node {
 	}
 	
 	public void imprimir() {
-		if(this.informacao == null) {
+		if(this.info == null) {
 			//System.out.print("Lista Vazia");
 		}else {
 			
-			System.out.print(this.informacao + "\t");
+			System.out.print(this.info + "\t");
 			
 			if(this.proximo != null) {
 				this.proximo.imprimir();	
@@ -125,16 +149,16 @@ public class Node {
 	}
 	
 	public Node removePrimeiro() {
-		if(this.informacao == null) {
+		if(this.info == null) {
 			return null;
 		}else {
 			if(this.proximo != null) {
 				
 				Node temp = new Node();
-				temp.informacao = this.informacao;
+				temp.info = this.info;
 				temp.proximo = this.proximo;
 				
-				this.informacao = this.proximo.informacao;
+				this.info = this.proximo.info;
 				
 				if(this.proximo.proximo != null) {
 					
@@ -145,9 +169,9 @@ public class Node {
 				
 			}else {
 				Node temp = new Node();
-				temp.informacao = this.informacao;
+				temp.info = this.info;
 				
-				this.informacao = null;
+				this.info = null;
 				
 				return temp;
 			}
@@ -155,20 +179,20 @@ public class Node {
 	}
 	
 	public Node removeUltimo() {
-		if(this.informacao == null) {
+		if(this.info == null) {
 			return null;
 		}else {
 			Node depois = this.proximo;
 			if(depois == null) {
 				Node temp = new Node();
-				temp.informacao = this.informacao;
+				temp.info = this.info;
 				
-				this.informacao = null;
+				this.info = null;
 				return temp;
 			}else {
 				if(depois.proximo == null) {
 					Node temp = new Node();
-					temp.informacao = this.proximo.informacao;
+					temp.info = this.proximo.info;
 					
 					this.proximo = null;
 					return temp;
@@ -179,15 +203,15 @@ public class Node {
 		}
 	}
 	public Node remove(int info) {
-		if(this.informacao == null) {
+		if(this.info == null) {
 			return null;
 		}else {
-			if(this.informacao == info) {
+			if(this.info == info) {
 				
 				Node temp = new Node();
-				temp.informacao = this.informacao;
+				temp.info = this.info;
 				
-				this.informacao = null;
+				this.info = null;
 				
 				return temp;
 			}else {
@@ -195,14 +219,14 @@ public class Node {
 				if(depois == null) {
 					return null;
 				}else {
-					if(depois.informacao == info) {
+					if(depois.info == info) {
 						
 						Node temp = new Node();
-						temp.informacao = depois.informacao;
+						temp.info = depois.info;
 						temp.proximo = depois.proximo;
 						
 						 if(depois.proximo != null) {
-							 this.proximo.informacao = depois.proximo.informacao;
+							 this.proximo.info = depois.proximo.info;
 							 this.proximo.proximo = depois.proximo.proximo;
 						 }else {
 							 this.proximo = null;
@@ -225,6 +249,9 @@ public class Node {
 		lista.insereOrdenado(11);
 		lista.insereOrdenado(1);
 		lista.insereOrdenado(7);
+		lista.inserePrimeiro(0);
+		lista.insereUltimo(12);
+
 		
 		lista.imprimir();
 		
