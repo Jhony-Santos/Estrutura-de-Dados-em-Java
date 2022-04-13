@@ -1,54 +1,86 @@
-package ListaEncadeada;
+package node;
+
+import node.Node;
 
 public class ListaEncadeada {
+	private Node lista;
+	public ListaEncadeada() {
+		lista = null;
+	}
 
-    private int posicao = 0;
-    private No no;
-
-    public static void main(String[] args) {
-
-        ListaEncadeada lista = new ListaEncadeada();
-
-        lista.inserePrimeiro(5);
-        lista.insereDepois(new No, 10);
-        lista.insereUltimo(15);
-
-
-    }
-
-
-
-    public void inserePrimeiro(int info)
-    {
-        No novo = new No();
-        novo.setInfo(info);
-        novo.setProx(primeiro);
-
-
-
-    }
-
-    private boolean vazia(){
-        return true;
-    }
-
-    public void insereDepois(No no, int info){};
-
-    public void insereUltimo(int info){};
-
-    public void insereOrdenado(int info){};
-
-    public void mostraLista(){}
-
-    public int retiraPrimeiro(){};
-
-    public int retiraUltimo(){};
-
-    public int retiradepois(No no){};
-
-    public int ultimoElemento(){}
-
+	public int topo() {
+		if(lista == null) {
+			return 0;
+		}else {
+			return lista.topo();
+		}
+	}
+	
+	public boolean existe(int valor) {
+		if(lista == null) {
+			return false;
+		}else {
+			Node procura = new Node();
+			procura.inserePrimeiro(valor);
+			
+			if(lista.procuraNode(procura) == null) {
+				return false;
+			}else {
+				return true;
+			}
+		}
+	}
+	
+	public void inserePrimeiro(int info) {
+		if(lista == null) {
+			lista = new Node();
+		}
+		lista.inserePrimeiro(info);
+	}
+	public void insereDepois(Node node,int info) {
+		if(lista == null) {
+			lista = new Node();
+		}
+		lista.insereDepois(node,info);
+	}
+	public void insereUltimo(int info) {
+		if(lista == null) {
+			lista = new Node();
+		}
+		lista.insereUltimo(info);
+	}
+	public void insereOrdenado(int info) {
+		if(lista == null) {
+			lista = new Node();
+		}
+		lista.insereOrdenado(info);
+	} 
+	public void imprime() {
+		if(lista == null) {
+			//System.out.println("\nLista Vazia");
+		}else {
+			lista.imprimir();
+		}
+	}
+	public Node removePrimeiro() {
+		if(lista == null) {
+			return null;
+		}
+		return lista.removePrimeiro();
+	}
+	public Node removeUltimo() {
+		if(lista == null) {
+			return null;
+		}
+		return lista.removeUltimo();
+	}
+	public Node remove(int info) {
+		if(lista == null) {
+			return null;
+		}else {
+			return lista.remove(info);
+		}
+	}
+	
+	
 }
-
-
-
