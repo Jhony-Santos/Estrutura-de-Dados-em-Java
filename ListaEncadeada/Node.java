@@ -54,42 +54,7 @@ public class Node {
 		}
 	}
 	
-	public void insereDepois(Node node,int info) {
-		Node encontrado = procuraNode(node);
-		if(encontrado == null) {
-			System.out.print("Valor não encontrado em insereDepois.");
-		}else {
-			Node temp = new Node();
-			temp.info = info;
-			temp.proximo = encontrado.proximo;
-			
-			encontrado.proximo = temp;
-		}
 
-	}
-
-
-	public void remove_depois(Node no){
-		Node encontrar=procuraNode(no);
-		if(encontrar == null) {
-			System.out.print("Valor não encontrado em insereDepois.");
-		}
-		else{
-			if(no.proximo==null){
-				System.out.println("Não é possível remover pois é o último nó");
-			}
-			else
-			{
-				no.remove(no.proximo.info);
-				Node removido = no.remove(no.proximo.info);
-				System.out.println("Nó removido: " + removido);
-			}
-
-		}
-
-	}
-
-	
 	public void insereUltimo(int info) {
 		if(this.info == null) {
 			this.info = info;
@@ -241,6 +206,48 @@ public class Node {
 			}
 		}
 	}
+
+	public void insereDepois(Node node,int info) {
+		Node encontrado = procuraNode(node);
+		if(encontrado == null) {
+			System.out.print("Valor não encontrado em insereDepois.");
+		}else {
+			Node temp = new Node();
+			temp.info = info;
+			temp.proximo = encontrado.proximo;
+
+			encontrado.proximo = temp;
+		}
+
+	}
+
+
+
+
+	public void remove_depois(Node no)
+	{
+
+		Node encontrar=procuraNode(no);
+		if(encontrar == null) {
+			System.out.print("Valor não encontrado");
+		}
+		else
+		{
+			if(no.proximo==null){
+				System.out.println("Não é possível remover pois é o último nó");
+			}
+			else
+			{
+				//no.remove(no.proximo.info);
+				//Node removido = no.remove(no.proximo.info);
+				//System.out.println("Nó removido: " + removido.info);
+			}
+
+		}
+
+	}
+
+
 	public static void main(String[] args) {
 		Node  lista = new Node();
 		lista.insereOrdenado(10);
@@ -251,9 +258,15 @@ public class Node {
 		lista.insereOrdenado(7);
 		lista.inserePrimeiro(0);
 		lista.insereUltimo(12);
-
-		
 		lista.imprimir();
+		String espaco=("\n");
+
+
+
+		lista.remove_depois(lista.proximo);
+		lista.imprimir();
+		
+
 		
 	}
 
