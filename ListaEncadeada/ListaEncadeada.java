@@ -1,9 +1,17 @@
 package ListaEncadeada;
 
-
+/*
+* primeiro
+* ultimo
+*
+*
+*
+* */
 
 public class ListaEncadeada {
 
+	private Node primeiro;
+	private Node ulitmo;
 	private Node lista;
 
 	public ListaEncadeada() {
