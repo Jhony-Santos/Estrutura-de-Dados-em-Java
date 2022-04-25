@@ -214,8 +214,8 @@ public class Node {
 	public void insereDepois(Node node,int info) {
 		Node encontrado = procuraNode(node);
 		if(encontrado == null) {
-			System.out.print("Valor não encontrado em insereDepois.");
-		}else {
+			System.out.print("Valor não encontrado em insere depois.");
+		} else {
 			Node temp = new Node();
 			temp.info = info;
 			temp.proximo = encontrado.proximo;
@@ -228,7 +228,7 @@ public class Node {
 
 
 
-	public void remove_depois(Node no)
+	public void retira_depois(Node no)
 	{
 
 		Node encontrar=procuraNode(no);
@@ -251,6 +251,17 @@ public class Node {
 
 	}
 
+	public void ultimo_elemento(){
+		while(){}
+
+
+
+
+	}
+
+
+
+
 
 	public static void main(String[] args) {
 		Node  lista = new Node();
@@ -267,7 +278,7 @@ public class Node {
 
 
 
-		lista.remove_depois(lista.proximo);
+		lista.retira_depois(lista.proximo);
 		lista.imprimir();
 		
 

@@ -1,12 +1,8 @@
-package ListaEncadeada;
+/*package ListaEncadeada;
 
-/*
-* primeiro
-* ultimo
-*
-*
-*
-* */
+
+ primeiro
+ ultimo
 
 public class ListaEncadeada {
 
@@ -18,14 +14,7 @@ public class ListaEncadeada {
 		lista = null;
 	}
 
-	public int topo() {
-		if(lista == null) {
-			return 0;
-		}else {
-			return lista.topo();
-		}
-	}
-	
+	// AQUI
 	public boolean existe(int valor) {
 		if(lista == null) {
 			return false;
@@ -94,3 +83,18 @@ public class ListaEncadeada {
 	
 	
 }
+*/
+
+/*
+
+public int topo() {
+		if(lista == null) {
+		return 0;
+		}else {
+		return lista.topo();
+		}
+		}
+
+
+
+*/
