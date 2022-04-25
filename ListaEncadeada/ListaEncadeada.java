@@ -1,100 +1,287 @@
-/*package ListaEncadeada;
-
-
- primeiro
- ultimo
+package ListaEncadeada;
 
 public class ListaEncadeada {
 
 	private Node primeiro;
-	private Node ulitmo;
-	private Node lista;
+	private Node ultimo;
+	private int size;
 
 	public ListaEncadeada() {
-		lista = null;
+		this.size = 0;
 	}
 
-	// AQUI
-	public boolean existe(int valor) {
-		if(lista == null) {
-			return false;
-		}else {
-			Node procura = new Node();
-			procura.inserePrimeiro(valor);
-			
-			if(lista.procuraNode(procura) == null) {
-				return false;
-			}else {
-				return true;
+    public int getValue() {
+        if(info == null) {
+            return 0;
+        }else {
+            return info;
+        }
+    }
+
+    public int topo() {
+        if(this.info == null) {
+            return 0;
+        }
+        if(this.proximo != null) {
+            return this.proximo.topo();
+        }else {
+            return this.info;
+        }
+    }
+
+    public boolean vazia() {
+        if(this.info == null) {
+            return true;
+        }
+        return false;
+    }
+
+    public void inserePrimeiro(int info){
+        if(this.info == null) {
+            this.info = info;
+        }else {
+            int temp = this.info;
+
+            this.info = info;
+
+            Node tempNode = new Node();
+            tempNode.info = temp;
+            tempNode.proximo = this.proximo;
+
+            this.proximo = tempNode;
+        }
+    }
+
+
+    public void insereUltimo(int info) {
+        if(this.info == null) {
+            this.info = info;
+        }else {
+            if(this.proximo == null) {
+                this.proximo = new Node();
+                this.proximo.info = info;
+            }else {
+                this.proximo.insereUltimo(info);
+            }
+        }
+    }
+
+    public void insereOrdenado(int info) {
+        if(this.info == null) {
+            this.info = info;
+        }else {
+            if(this.info > info) {
+                this.inserePrimeiro(info);
+            }else {
+                if(this.proximo == null) {
+                    this.insereUltimo(info);
+                }else {
+                    this.proximo.insereOrdenado(info);
+                }
+            }
+        }
+    }
+
+    public Node procuraNode(Node node) {
+        if(this.info == null) {
+            return null;
+        }
+
+        if(this.info.equals(node.info)) {
+            return this;
+        }else {
+            if(this.proximo == null) {
+                return null;
+            }else {
+                return this.proximo.procuraNode(node);
+            }
+        }
+    }
+
+    public void imprimir() {
+        if(this.info == null) {
+            //System.out.print("Lista Vazia");
+        }else {
+
+            System.out.print(this.info + "\t");
+
+            if(this.proximo != null) {
+                this.proximo.imprimir();
+            }
+        }
+    }
+
+    public Node removePrimeiro() {
+        if(this.info == null) {
+            return null;
+        }else {
+            if(this.proximo != null) {
+
+                Node temp = new Node();
+                temp.info = this.info;
+                temp.proximo = this.proximo;
+
+                this.info = this.proximo.info;
+
+                if(this.proximo.proximo != null) {
+
+                    this.proximo = this.proximo.proximo;
+                }
+
+                return temp;
+
+            }else {
+                Node temp = new Node();
+                temp.info = this.info;
+
+                this.info = null;
+
+                return temp;
+            }
+        }
+    }
+
+    public Node removeUltimo() {
+        if(this.info == null) {
+            return null;
+        }else {
+            Node depois = this.proximo;
+            if(depois == null) {
+                Node temp = new Node();
+                temp.info = this.info;
+
+                this.info = null;
+                return temp;
+            }else {
+                if(depois.proximo == null) {
+                    Node temp = new Node();
+                    temp.info = this.proximo.info;
+
+                    this.proximo = null;
+                    return temp;
+                }else {
+                    return this.proximo.removeUltimo();
+                }
+            }
+        }
+    }
+    public Node remove(int info) {
+        if(this.info == null) {
+            return null;
+        }else {
+            if(this.info == info) {
+
+                Node temp = new Node();
+                temp.info = this.info;
+
+                this.info = null;
+
+                return temp;
+            }else {
+                Node depois = this.proximo;
+                if(depois == null) {
+                    return null;
+                }else {
+                    if(depois.info == info) {
+
+                        Node temp = new Node();
+                        temp.info = depois.info;
+                        temp.proximo = depois.proximo;
+
+                        if(depois.proximo != null) {
+                            this.proximo.info = depois.proximo.info;
+                            this.proximo.proximo = depois.proximo.proximo;
+                        }else {
+                            this.proximo = null;
+                        }
+
+                        return temp;
+                    }else {
+                        return this.proximo.remove(info);
+                    }
+
+                }
+            }
+        }
+    }
+
+    public void insereDepois(Node node,int info) {
+        Node encontrado = procuraNode(node);
+        if(encontrado == null) {
+            System.out.print("Valor não encontrado em insere depois.");
+        } else {
+            Node temp = new Node();
+            temp.info = info;
+            temp.proximo = encontrado.proximo;
+
+            encontrado.proximo = temp;
+        }
+
+    }
+
+
+	/*public int retira_depois(Node no)
+	{
+
+		Node encontrar=procuraNode(no);
+		if(encontrar == null) {
+			System.out.print("Valor não encontrado");
+		}
+		else
+		{
+			if(no.proximo==null){
+				System.out.println("Não é possível remover pois é o último nó");
 			}
+			else
+			{
+				//no.remove(no.proximo.info);
+				//Node removido = no.remove(no.proximo.info);
+				//System.out.println("Nó removido: " + removido.info);
+			}
+
 		}
+
 	}
-	
-	public void inserePrimeiro(int info) {
-		if(lista == null) {
-			lista = new Node();
-		}
-		lista.inserePrimeiro(info);
-	}
-	public void insereDepois(Node node,int info) {
-		if(lista == null) {
-			lista = new Node();
-		}
-		lista.insereDepois(node,info);
-	}
-	public void insereUltimo(int info) {
-		if(lista == null) {
-			lista = new Node();
-		}
-		lista.insereUltimo(info);
-	}
-	public void insereOrdenado(int info) {
-		if(lista == null) {
-			lista = new Node();
-		}
-		lista.insereOrdenado(info);
-	} 
-	public void imprime() {
-		if(lista == null) {
-			//System.out.println("\nLista Vazia");
-		}else {
-			lista.imprimir();
-		}
-	}
-	public Node removePrimeiro() {
-		if(lista == null) {
-			return null;
-		}
-		return lista.removePrimeiro();
-	}
-	public Node removeUltimo() {
-		if(lista == null) {
-			return null;
-		}
-		return lista.removeUltimo();
-	}
-	public Node remove(int info) {
-		if(lista == null) {
-			return null;
-		}else {
-			return lista.remove(info);
-		}
-	}
-	
+
+	public void ultimo_elemento(){
+		while(){}
+	}*/
+
+    public Node get(int index){
+        Node node =
+
+
+    }
+
+    public int retira_depois(Node no) {
+
+        Node encontrar=procuraNode(no);
+
+        if(encontrar == null) {
+            System.out.print("Valor não encontrado");
+        }
+        if(no == 0){}
+
+
+
+        else
+        {
+            if(no.proximo==null){
+                System.out.println("Não é possível remover pois é o último nó");
+            }
+            else
+            {
+                //no.remove(no.proximo.info);
+                //Node removido = no.remove(no.proximo.info);
+                //System.out.println("Nó removido: " + removido.info);
+            }
+
+        }
+
+    }
+
+
 	
 }
-*/
-
-/*
-
-public int topo() {
-		if(lista == null) {
-		return 0;
-		}else {
-		return lista.topo();
-		}
-		}
 
 
-
-*/
