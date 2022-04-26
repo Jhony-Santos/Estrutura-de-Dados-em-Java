@@ -139,7 +139,7 @@ public class ListaEncadeada {
         int info = prev.proximo.info;
         prev.proximo = prev.proximo.proximo;
         tamanho--;
-        return info + 1;
+        return info;
 
     }
 
@@ -162,7 +162,6 @@ public class ListaEncadeada {
 
 	public int ultimo_elemento(){
 
-        //Node auxiliar = getUltimo();
         int last = ultimo.getValue();
 
         System.out.println("O ultimo elemento é: ") ; return last;
@@ -179,9 +178,18 @@ public class ListaEncadeada {
         return node;
     }
 
-    public int retira_depois(Node no) {
-
-
+    public int retira_depois(int indice) {
+        if(indice == 0){
+            return removePrimeiro();
+        }
+        if(indice == tamanho - 1){
+            return removeUltimo();
+        }
+        Node prev = get(indice - 1);
+        int informacao = prev.proximo.info;
+        tamanho--;
+        System.out.print("A informação removidada foi ");
+        return informacao - 1;
 
     }
 
