@@ -1,5 +1,13 @@
 package LinkedList;
 
+/*
+  Singly LinkedLIst -> LL
+  Doubly LinkedList -> DLL
+  Circular LinkedList -> CLL
+
+*/
+
+
 public class CLL {
 
     private Node head;
