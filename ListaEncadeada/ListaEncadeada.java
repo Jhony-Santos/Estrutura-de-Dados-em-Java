@@ -60,42 +60,44 @@ public class ListaEncadeada {
         }
     }
 
-    public void insereOrdenado(int info) {
-        if(this.informacao == null) {
-            this.informacao = info;
-        }else {
-            if(this.informacao > info) {
-                this.inserePrimeiro(info);
-            }else {
-                if(this.proximo == null) {
-                    this.insereUltimo(info);
-                }else {
-                    this.proximo.insereOrdenado(info);
-                }
-            }
+
+    public void insere_ordenado(int info) {
+        if(this.primeiro == null || info<this.primeiro.info){
+            inserePrimeiro(info);
         }
+        else{
+
+            Node noAtual=primeiro;
+            while(noAtual.proximo != null &&noAtual.proximo.info < info){
+                noAtual = noAtual.proximo;
+            }
+            Node no_ordenado = new Node(info);
+            no_ordenado.proximo= noAtual.proximo;
+            noAtual.proximo=no_ordenado;
+        }
+
     }
 
 
 
-    public Node procuraNode(Node node) {
-        if(this.informacao == null) {
-            return null;
+
+    public Node procuraNode(int info) {
+
+        if(this.primeiro == null || info == this.primeiro.info){
+            return primeiro;
+
         }
 
-        if(this.informacao.equals(node.informacao)) {
-            return this;
-        }else {
-            if(this.proximo == null) {
-                return null;
-            }else {
-                return this.proximo.procuraNode(node);
-            }
+        Node noAtual=primeiro;
+        while(noAtual != null && noAtual.info != info){
+            noAtual = noAtual.proximo;
         }
+        return noAtual;
+
     }
 
     public void imprimir() {
-       Node temp = ultimo;
+       Node temp = primeiro;
        while (temp != null){
            System.out.println(temp.info);
            temp=temp.proximo;
@@ -142,7 +144,7 @@ public class ListaEncadeada {
 
     }
 
-    public void insereDepois(Node node,int info) {
+   /* public void insereDepois(Node node,int info) {
         Node encontrado = procuraNode(node);
         if(encontrado == null) {
             System.out.print("Valor não encontrado em insere depois.");
@@ -154,7 +156,7 @@ public class ListaEncadeada {
             encontrado.proximo = temp;
         }
 
-    }
+    }*/
 
 
 

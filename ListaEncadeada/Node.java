@@ -3,7 +3,7 @@ package ListaEncadeada;
 
 public class Node {
 
-	Integer info;
+	int info;
 	Node proximo;
 
 
@@ -42,8 +42,13 @@ public class Node {
         }
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Node{" +
+                "info=" + info +
+                ", proximo=" + proximo +
+                '}';
+    }
 }
 
 
