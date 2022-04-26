@@ -6,9 +6,11 @@ public class ListaEncadeada {
 	private Node ultimo;
 	private int tamanho;
 
+
+
 	public ListaEncadeada() {
 		this.tamanho = 0;
-	}
+    }
 
 
     public Node getPrimeiro() {
@@ -27,19 +29,9 @@ public class ListaEncadeada {
         this.ultimo = ultimo;
     }
 
-    public int topo() {
-        if(this.info == null) {
-            return 0;
-        }
-        if(this.proximo != null) {
-            return this.proximo.topo();
-        }else {
-            return this.info;
-        }
-    }
 
     public boolean vazia() {
-        if(this.info == null) {
+        if(primeiro == null) {
             return true;
         }
         return false;
@@ -69,10 +61,10 @@ public class ListaEncadeada {
     }
 
     public void insereOrdenado(int info) {
-        if(this.info == null) {
-            this.info = info;
+        if(this.informacao == null) {
+            this.informacao = info;
         }else {
-            if(this.info > info) {
+            if(this.informacao > info) {
                 this.inserePrimeiro(info);
             }else {
                 if(this.proximo == null) {
@@ -84,15 +76,22 @@ public class ListaEncadeada {
         }
     }
 
-    public Node procuraNode(int info ) {
-        Node node = ultimo;
-        while(node != null){
-            if(node.info == info){
-                return node;
-            }
-            node = node.proximo;
+
+
+    public Node procuraNode(Node node) {
+        if(this.informacao == null) {
+            return null;
         }
-        return null;
+
+        if(this.informacao.equals(node.informacao)) {
+            return this;
+        }else {
+            if(this.proximo == null) {
+                return null;
+            }else {
+                return this.proximo.procuraNode(node);
+            }
+        }
     }
 
     public void imprimir() {
