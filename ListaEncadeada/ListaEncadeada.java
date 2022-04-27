@@ -144,24 +144,7 @@ public class ListaEncadeada {
 
     }
 
-   /* public void insereDepois(Node node,int info) {
-        Node encontrado = procuraNode(node);
-        if(encontrado == null) {
-            System.out.print("Valor não encontrado em insere depois.");
-        } else {
-            Node temp = new Node();
-            temp.info = info;
-            temp.proximo = encontrado.proximo;
-
-            encontrado.proximo = temp;
-        }
-
-    }*/
-
-
-
-
-	public int ultimo_elemento(){
+  	public int ultimo_elemento(){
 
         int last = ultimo.getValue();
 
@@ -179,23 +162,35 @@ public class ListaEncadeada {
         return node;
     }
 
-    public int retira_depois(int indice) {
-        if(indice == 0){
-            return removePrimeiro();
-        }
-        if(indice == tamanho - 1){
-            return removeUltimo();
-        }
-        Node prev = get(indice - 1);
-        int informacao = prev.proximo.info;
-        tamanho--;
-        System.out.print("A informação removidada foi ");
-        return informacao - 1;
+    public int retira_depois(Node valorRecebido) {
 
+        Node valorCaiFora = valorRecebido.proximo;
+        valorRecebido.proximo = valorCaiFora.proximo;
+
+
+       Node valorARemover = valorRemover.proximo;
+
+        if(procuraNode(valorRemover.info)==null) {
+            System.out.println("Valor não encontrado");
+        }
+
+
+
+
+
+
+
+
+
+
+        if(valorRemover!=null){
+            valorRemover.proximo = valorARemover.proximo;
+            return valorARemover.info;
+        }
+        //System.out.println("Foi removido o elemento");
+         return valorARemover;
     }
 
-
-	
 }
 
 
