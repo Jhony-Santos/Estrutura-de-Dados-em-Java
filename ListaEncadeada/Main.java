@@ -18,21 +18,19 @@ public class Main {
 
 
         ListaEncadeada list= new ListaEncadeada();
-        list.insere_ordenado(10);
-        list.insere_ordenado(11);
-        list.insere_ordenado(3);
-        list.insere_ordenado(4);
-        list.insere_ordenado(5);
-        list.insere_ordenado(14);
-        list.insere_ordenado(15);
-        list.insere_ordenado(100);
-        list.insere_ordenado(1000);
-        list.insere_ordenado(-5);
+
         list.insere_ordenado(1);
         list.insere_ordenado(2);
         list.insere_ordenado(3);
         list.insere_ordenado(4);
         list.insere_ordenado(5);
+        list.insere_ordenado(10);
+        list.insere_ordenado(11);
+        list.insere_ordenado(14);
+        list.insere_ordenado(15);
+        list.imprimir();
+
+        list.retira_depois(5);
 
         list.imprimir();
         Node nodeEncontrado= list.procuraNode(100);
