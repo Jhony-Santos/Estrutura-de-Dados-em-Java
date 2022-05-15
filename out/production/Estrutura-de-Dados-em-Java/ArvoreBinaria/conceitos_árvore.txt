@@ -1,0 +1,14 @@
+árvore binária é um conjunto de nós
+
+componentes:
+raiz
+subárvore esquerda
+subárvore direita
+
+- Cada subárvore é uma árvore binária, podendo ou não estar vazia
+-  O elemento da raiz de uma subárvore é chamado de nó pai
+-  Nó filho: nó que não possui filhos
+
+altura de um nó :
+raiz tem  altura 0
+altura de qualquer outro nó e dado pela distância
