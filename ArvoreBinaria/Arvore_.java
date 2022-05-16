@@ -1,18 +1,18 @@
 package ArvoreBinaria;
 
-public class Arvore {
+public class Arvore_ {
 
-    No raiz;
+    No_ raiz;
 
-    public Arvore(){
+    public Arvore_(){
         raiz = null;
     }
 
     public void insere(int info){
-        No novo = new No(info);
+        No_ novo = new No_(info);
     }
 
-    public void in_Ordem(No raiz) {
+    public void in_Ordem(No_ raiz) {
         if (raiz != null) {
             in_Ordem(raiz.esquerda);
             System.out.println(raiz.info);
@@ -20,7 +20,7 @@ public class Arvore {
         }
     }
 
-    public void pre_Ordem (No raiz) {
+    public void pre_Ordem (No_ raiz) {
         if (raiz != null) {
             System.out.println(raiz.info);
             in_Ordem(raiz.esquerda);

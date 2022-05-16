@@ -23,7 +23,7 @@ public class Tree {
             }
 
         } else if (info > place.info){ //devo inserir na direita
-            if(place.right== null){
+            if(place.right == null){
                 System.out.print(" " + info);
                 place.right=new Node(info);
             } else {
@@ -73,6 +73,12 @@ public class Tree {
 
 a diferença entre o pre-order e o inorder se dá no momento de imprimir os elementos, no preOrder é imprimido antes, já no
     inOrder é imprimido depois
+
+
+remoção:
+    - não tem filho
+    - tem filho apenas de um lado
+    - tem filhos de ambos os lados
 
 
 

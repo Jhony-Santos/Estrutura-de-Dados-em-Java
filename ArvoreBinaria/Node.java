@@ -7,7 +7,7 @@ public class Node {
     Node right;
 
 
-    Node(int info) {
+    Node (int info) {
         this.info=info;
         this.left=null;
         this.right=null;

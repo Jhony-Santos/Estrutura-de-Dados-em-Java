@@ -1,10 +1,4 @@
 package ArvoreBinaria;
 
-public class No {
-
-
-
-
-
-
+public class AVL {
 }
