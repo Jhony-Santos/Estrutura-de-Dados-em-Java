@@ -1,5 +1,5 @@
-package ListaEncadeada;
-
+//package ListaEncadeada;
+/*
 public class Main {
 
     public static void main(String[] args) {
@@ -17,7 +17,7 @@ public class Main {
         lista.imprimir();*/
 
 
-        ListaEncadeada list= new ListaEncadeada();
+        /*ListaEncadeada list= new ListaEncadeada();
 
         list.insere_ordenado(1);
         list.insere_ordenado(2);
@@ -51,3 +51,4 @@ public class Main {
 
     }
 }
+*/
