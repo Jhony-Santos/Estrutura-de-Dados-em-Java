@@ -1,3 +1,10 @@
+Em uma Lista simplesmente encadeada, a única forma de pesquisar seus elementos é percorrer a lista
+sequencialmente, em ordem linear
+
+
+
+
+
 1) O que é uma lista encadeada?
 
  
