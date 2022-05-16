@@ -17,7 +17,7 @@ a diferença entre a altura de um nó da subárvore esquerda e a altura de  um n
 [altura da subárvore esquerda] - [altura da subárvore direita]
 -1: subárvore direita é maior do que a esquerda
 
-Todos os nós possuem fator de balanceamento igual a [-1, 0 Ou 1]
+Todos os nós possuem fator de balanceamento igual a [-1, 0 OU 1]
 
 
 3) Como o balanceamento é mantido em uma árvore AVL?

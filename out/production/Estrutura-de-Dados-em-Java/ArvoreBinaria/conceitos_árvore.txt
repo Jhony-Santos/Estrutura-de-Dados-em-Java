@@ -11,4 +11,36 @@ subárvore direita
 
 altura de um nó :
 raiz tem  altura 0
-altura de qualquer outro nó e dado pela distância
+altura de qualquer outro nó e dado pela distância do nó até a raiz da árvore. A altura de uma árvore é dada pela maior altura obtida dentro o conjunto
+de nós folha da árvore
+
+
+
+Árvore Estritamente binária: todos os nós da árvore apresentam o ou 2 filhos
+Árvore Binária Completa: um árvore binária de altura d é dita completa é estritamente binária e todas as suas folhas possuem altura d
+--- Cada nível n de uma árvore binária completa possui 2 elevado a n nós
+
+Árvore Binária quase Completa:
+1. uma árvore onde todos os nós de nível menor que d-1 possuem 2 filhos E
+2. para todo nó nd que possui um descendente direito no nível d,  todo descendente esquerdo de nd é folha no nível d ou tem dois filhos
+
+
+
+
+
+
+
+
+=============================================
+
+a tree whose elements have at most 2 childrenn is called a binary tree
+
+
+A binary Tree node contains following parts
+1. Data
+2. Pointer to left child
+3. Pointer to right child
+
+
+
+
