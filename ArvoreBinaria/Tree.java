@@ -11,7 +11,6 @@ public class Tree {
     void insert(int info, Node place){ // inserindo pela primeira vez
 
         if (place == null) {
-
             root = new Node(info);
 
         } else if (info < place.info){ // devo inserir na esquerda
@@ -66,7 +65,15 @@ public class Tree {
 
 
 
-
-
-
 }
+
+// COMENTÁRIOS
+
+/*
+
+a diferença entre o pre-order e o inorder se dá no momento de imprimir os elementos, no preOrder é imprimido antes, já no
+    inOrder é imprimido depois
+
+
+
+*/
