@@ -1,5 +1,5 @@
 package ListaEncadeada;
-
+/*
 public class ListaEncadeada {
 
 	private Node primeiro;
@@ -194,3 +194,4 @@ public class ListaEncadeada {
 }
 
 
+*/
