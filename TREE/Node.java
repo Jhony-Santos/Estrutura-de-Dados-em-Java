@@ -1,4 +1,4 @@
-package ArvoreBinaria;
+package TREE;
 
 public class Node {
 

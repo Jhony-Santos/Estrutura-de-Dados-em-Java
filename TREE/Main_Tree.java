@@ -1,8 +1,6 @@
-package ArvoreBinaria;
+package TREE;
 
-import java.util.Random;
-
-public class Main_Arvore {
+public class Main_Tree {
     public static void main(String[] args) {
 
 
@@ -16,6 +14,14 @@ public class Main_Arvore {
         tree.insert(18,tree.root);
         tree.insert(13,tree.root);
         tree.insert(20,tree.root);
+
+        /*tree.insert(1,tree.root);
+        tree.insert(2,tree.root);
+        tree.insert(3,tree.root);
+        tree.insert(4,tree.root);
+        tree.insert(5,tree.root);*/
+
+
 
         System.out.print("\nPRE-ORDER:");
         tree.preOrder(tree.root);

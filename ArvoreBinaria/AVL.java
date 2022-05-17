@@ -2,12 +2,14 @@ package ArvoreBinaria;
 
 // grau: é um número de filhos que determinado nó possui
 
+import TREE.Node;
+
 public class AVL {
 
     public No raiz;
 
-    public void insere_elemento (int dado) {
-        No no= new No(dado);
+    public void insere_elemento(int dado) {
+        No no = new No(dado);
         if (raiz == null) {
             System.out.println(dado + " inserido na raiz");
             raiz = no;
@@ -17,7 +19,7 @@ public class AVL {
             if (pai.getDado() > dado) {
                 System.out.println(dado + " inserido a esquerda de " + pai.getDado());
                 pai.setEsquerdo(no);
-            } else if(pai.getDado() < dado) {
+            } else if (pai.getDado() < dado) {
                 System.out.println(dado + " inserido a direita de " + pai.getDado());
                 pai.setDireito(no);
             }
@@ -25,10 +27,10 @@ public class AVL {
         }
     }
 
-    public No encontrarPai(int valor, No no){
+    public No encontrarPai(int valor, No no) {
         if (valor < no.getDado() && no.getEsquerdo() != null) {
             return encontrarPai(valor, no.getEsquerdo());
-        } else if(valor > no.getDado() && no.getDireito() != null) {
+        } else if (valor > no.getDado() && no.getDireito() != null) {
             return encontrarPai(valor, no.getDireito());
         } else {
             return no;
@@ -38,14 +40,14 @@ public class AVL {
 
     public void fator_balanceamento(int valor, No pai, int flag) {
         if (pai != null) {
-            if(flag == 1) {
+            if (flag == 1) {
                 if (valor > pai.getDado()) {
                     pai.setfator_balanceamento(pai.getfator_balanceamento() - 1);
                     if (pai.getDado() < -1) {
-                        if(pai.getDireito() != null && pai.getDireito().getfator_balanceamento() > 0) {
+                        if (pai.getDireito() != null && pai.getDireito().getfator_balanceamento() > 0) {
                             System.out.println("rotacao esquerda dupla em " + pai.getDado());
                             pai = rotacaoEsquerdaDupla(pai);
-                        } else if(pai.getDireito() != null && pai.getDireito().getfator_balanceamento() <= 0) {
+                        } else if (pai.getDireito() != null && pai.getDireito().getfator_balanceamento() <= 0) {
                             System.out.println("rotacao esquerda simples em " + pai.getDado());
                             pai = rotacaoEsquerdaSimples(pai);
                         }
@@ -56,11 +58,11 @@ public class AVL {
                 } else if (valor < pai.getDado()) {
                     pai.setfator_balanceamento(pai.getfator_balanceamento() + 1);
                     if (pai.getfator_balanceamento() > 1) {
-                        if(pai.getEsquerdo() != null && pai.getEsquerdo().getfator_balanceamento() < 0) {
+                        if (pai.getEsquerdo() != null && pai.getEsquerdo().getfator_balanceamento() < 0) {
                             System.out.println("rotacao direita dupla em " + pai.getDado());
                             pai = rotacaoDireitaDupla(pai);
-                        } else if(pai.getEsquerdo() != null && pai.getEsquerdo().getfator_balanceamento() >= 0) {
-                            System.out.println("Teste rotacao direita simples em " + pai.getDado() + "(" + pai.getfator_balanceamento() + ")" );
+                        } else if (pai.getEsquerdo() != null && pai.getEsquerdo().getfator_balanceamento() >= 0) {
+                            System.out.println("Teste rotacao direita simples em " + pai.getDado() + "(" + pai.getfator_balanceamento() + ")");
                             pai = rotacaoDireitaSimples(pai);
                         }
                     }
@@ -68,11 +70,11 @@ public class AVL {
                         fator_balanceamento(pai.getDado(), pai.getPai(), flag);
                     }
                 }
-            } else if(flag == -1) {
+            } else if (flag == -1) {
                 if (valor > pai.getDado()) {
                     pai.setfator_balanceamento(pai.getfator_balanceamento() + 1);
                     if (pai.getfator_balanceamento() > 1) {
-                        if(pai.getEsquerdo() != null && pai.getEsquerdo().getfator_balanceamento() < 0) {
+                        if (pai.getEsquerdo() != null && pai.getEsquerdo().getfator_balanceamento() < 0) {
                             System.out.println("rotacao direita dupla em " + pai.getDado());
                             pai = rotacaoDireitaDupla(pai);
                         } else {
@@ -86,7 +88,7 @@ public class AVL {
                 } else {
                     pai.setfator_balanceamento(pai.getfator_balanceamento() - 1);
                     if (pai.getfator_balanceamento() < -1) {
-                        if(pai.getDireito() != null && pai.getDireito().getfator_balanceamento() > 0) {
+                        if (pai.getDireito() != null && pai.getDireito().getfator_balanceamento() > 0) {
                             System.out.println("rotacao esquerda dupla em " + pai.getDado());
                             pai = rotacaoEsquerdaDupla(pai);
                         } else {
@@ -120,8 +122,7 @@ public class AVL {
         if (direito.getPai() != null) {
             if (direito.getPai().getDireito() == inicial) {
                 direito.getPai().setDireito(direito);
-            }
-            else if (direito.getPai().getEsquerdo() == inicial) {
+            } else if (direito.getPai().getEsquerdo() == inicial) {
                 direito.getPai().setEsquerdo(direito);
             }
         }
@@ -142,7 +143,7 @@ public class AVL {
         esquerdo.setPai(inicial.getPai());
         inicial.setEsquerdo(inicial.getDireito());
 
-        if(inicial.getEsquerdo() != null) {
+        if (inicial.getEsquerdo() != null) {
             inicial.getEsquerdo().setPai(inicial);
         }
 
@@ -152,8 +153,7 @@ public class AVL {
         if (esquerdo.getPai() != null) {
             if (esquerdo.getPai().getDireito() == inicial) {
                 esquerdo.getPai().setDireito(esquerdo);
-            }
-            else if (esquerdo.getPai().getEsquerdo() == inicial) {
+            } else if (esquerdo.getPai().getEsquerdo() == inicial) {
                 esquerdo.getPai().setEsquerdo(esquerdo);
             }
         }
@@ -168,7 +168,6 @@ public class AVL {
     }
 
 
-
     public No rotacaoEsquerdaDupla(No no) {
         rotacaoDireitaSimples(no.getDireito());
         return rotacaoEsquerdaSimples(no);
@@ -181,7 +180,7 @@ public class AVL {
     }
 
     // REMOVER
-    public void remover(int valor) {
+    public void remove_elemento(int valor) {
         No aRemover = acharNo(raiz, valor);
         No pai = aRemover.getPai();
 
@@ -234,7 +233,7 @@ public class AVL {
                 // remover sucessor, pegar chave dele e atribuir a aremover
                 No sucessor = sucessor(aRemover);
                 int aux_valor = sucessor.getDado();
-                remover(aux_valor);
+                remove_elemento(aux_valor);
                 aRemover.setDado(aux_valor);
             }
         } else {
@@ -244,11 +243,11 @@ public class AVL {
 
     // ACHAR NÓ
     public No acharNo(No no, int valor) {
-        if(no.getDado() == valor) {
+        if (no.getDado() == valor) {
             return no;
-        } else if(no.getDado() < valor && no.getDireito() != null) {
+        } else if (no.getDado() < valor && no.getDireito() != null) {
             return acharNo(no.getDireito(), valor);
-        } else if(no.getDado() > valor && no.getEsquerdo() != null){
+        } else if (no.getDado() > valor && no.getEsquerdo() != null) {
             return acharNo(no.getEsquerdo(), valor);
         } else {
             return null;
@@ -258,14 +257,14 @@ public class AVL {
     // SUCESSOR
     public No sucessor(No no) {
         No sucessor = no.getDireito();
-        while (sucessor.getEsquerdo() != null){
+        while (sucessor.getEsquerdo() != null) {
             sucessor = sucessor.getEsquerdo();
         }
         return sucessor;
     }
 
     // IN ORDER
-    public void inOrder(No no) {
+   /* public void inOrder(No no) {
         if (no.getEsquerdo() != null) {
             inOrder(no.getEsquerdo());
         }
@@ -273,7 +272,53 @@ public class AVL {
         if (no.getDireito() != null) {
             inOrder(no.getDireito());
         }
+    } */
+
+    void IN_ORDER(No no){
+        if(no.esquerdo!=null){
+            IN_ORDER(no.esquerdo);
+        }
+        System.out.println(" " + no.dado);
+        if(no.direito != null){
+            IN_ORDER(no.direito);
+        }
     }
 
+    public void PRE_ORDER(No no) {
+        System.out.println(no.getDado() + " (" + no.getfator_balanceamento() + ")");
+        if (no.getEsquerdo() != null) {
+            PRE_ORDER(no.getEsquerdo());
+        }
+
+        if (no.getDireito() != null) {
+            PRE_ORDER(no.getDireito());
+        }
+    }
+
+    void POS_ORDER(No no){
+        if(no.getEsquerdo() != null){
+            POS_ORDER(no.getEsquerdo());
+        }
+        if(no.getDireito() != null){
+            POS_ORDER(no.getDireito());
+        }
+        System.out.println(" " + no.getDado());
+    }
+
+    public void posOrder(No no) {
+        if (no.getEsquerdo() != null) {
+            posOrder(no.getEsquerdo());
+        }
+
+        if (no.getDireito() != null) {
+            posOrder(no.getDireito());
+        }
+        System.out.println(no.getDado() + " (" + no.getfator_balanceamento() + ")");
+    }
 
 }
+
+
+
+
+

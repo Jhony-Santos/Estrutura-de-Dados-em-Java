@@ -1,6 +1,4 @@
-package ArvoreBinaria;
-
-import java.sql.SQLOutput;
+package TREE;
 
 public class Tree {
 
