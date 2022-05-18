@@ -1,68 +1,55 @@
 package AVL;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
-import java.util.Map;
 
 public class Arvore_Main {
+
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        BufferedReader buffRead = new BufferedReader(new FileReader("C:\\Users\\jntd\\AppData\\Roaming\\JetBrains\\IntelliJIdea2021.3\\scratches\\scratch.txt"));
-
-        String linha;
-        String[] palavrasLinha;
-        HashMap<String, Integer> agrupaPalavras = new HashMap<>();
-        while(true) {
-            linha = buffRead.readLine();
-            if(linha != null){
-                palavrasLinha = linha.split(" ");
-                for (String palavraLinha :
-                        palavrasLinha) {
-                    if(agrupaPalavras.get(palavraLinha) == null){
-                        agrupaPalavras.put(palavraLinha,0);
-                    }
-                    agrupaPalavras.put(palavraLinha,agrupaPalavras.get(palavraLinha)+1);
-                }
-            }else{
-                break;
-            }
-        }
-        buffRead.close();
-        ArvoreAVL arvore = new ArvoreAVL();
-        agrupaPalavras.forEach((s, integer) -> {
-            arvore.inserir(new Elemento(s,integer));
-        });
-        System.out.println("IN_ORDER");
-        arvore.imprimirInOrdem();
-
-        System.out.println();
-
-        System.out.println("PRE_ORDER");
-        arvore.imprimirPreOrdem();
-
-        System.out.println();
-        System.out.println("POS_ORDER");
-        arvore.imprimirPosOrdem();
-
-        System.out.println(arvore.calcularAltura());
-        System.out.println(arvore.busca(14));
-
-        arvore.isEmpty();
-        arvore.calcularAltura();
+        buscarTermo("C:\\Users\\jntd\\Downloads\\arquivos", "fabricio");
     }
-    public static void main2(String[] args) {
+
+
+    public static void buscarTermo(String diretorio, String termo) throws IOException {
+
+        System.out.println();
+        System.out.println("-------------------------BUSCAR TERMO-------------------------");
+
+        File directory = new File(diretorio);
+
+        File[] list_arquivos = directory.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".txt");
+            }
+        });
 
         ArvoreAVL arvore = new ArvoreAVL();
 
-        arvore.inserir(new Elemento(10));
-        arvore.inserir(new Elemento(5));
-        arvore.inserir(new Elemento(1));
-        arvore.inserir(new Elemento(8));
-        arvore.inserir(new Elemento(15));
-        arvore.inserir(new Elemento(12));
-        arvore.inserir(new Elemento(18));
+        for (File arquivo: list_arquivos) {
+            BufferedReader buffRead = new BufferedReader(new FileReader(arquivo));
+
+            String linha;
+            HashMap<String, Integer> palavra_map = new HashMap<>();
+
+            while (true) {
+                linha = buffRead.readLine();
+
+                if (linha == null) break;
+
+                for (String palavraLinha : linha.split(" ")) {
+                    if (palavra_map.get(palavraLinha) == null) palavra_map.put(palavraLinha, 0);
+                    palavra_map.put(palavraLinha, palavra_map.get(palavraLinha) + 1);
+                }
+            }
+
+            buffRead.close();
+            palavra_map.forEach((s, integer) -> {
+                arvore.inserir(new Elemento(s,integer));
+            });
+
+            System.out.println(arquivo.getName() + ": " + (palavra_map.get(termo) != null ? palavra_map.get(termo) : "Termo não encontrado!"));
+        }
 
         System.out.println("IN_ORDER");
         arvore.imprimirInOrdem();
@@ -76,11 +63,11 @@ public class Arvore_Main {
         System.out.println("POS_ORDER");
         arvore.imprimirPosOrdem();
 
-        System.out.println(arvore.calcularAltura());
-        System.out.println(arvore.busca(14));
+        System.out.println();
+        System.out.println("Altura da árvore: " + arvore.calcularAltura());
+        System.out.println("Valor da busca existe: " + arvore.busca(14));
 
         arvore.isEmpty();
         arvore.calcularAltura();
-
     }
 }

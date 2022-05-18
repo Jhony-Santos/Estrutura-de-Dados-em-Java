@@ -1,31 +1,25 @@
 package AVL;
 
 
-    public class Elemento{
+public class Elemento{
 
-        private int dado;
-        private String palavra;
+    private String info;
+    private int dado;
 
-
-
-        public Elemento(String palavra,int dado){
-            this.dado = dado;
-            this.palavra = palavra;
-        }
-        public Elemento(int dado){
-            this.dado = dado;
-        }
-        public void setDado(int dado){
-            this.dado = dado;
-        }
-        public String getPalavra(){
-            return this.palavra;
-        }
-        public void setPalavra(String palavra){
-            this.palavra = palavra;
-        }
-        public int getDado(){
-            return this.dado;
-        }
+    public Elemento(String info, int dado){
+        this.info = info;
+        this.dado = dado;
     }
+
+    public void setValor(int valor){
+        this.dado = valor;
+    }
+    public int getValor(){
+        return this.dado;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+}
 

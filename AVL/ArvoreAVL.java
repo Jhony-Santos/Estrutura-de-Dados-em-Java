@@ -158,7 +158,7 @@ public class ArvoreAVL {
 
     public void imprimirPreOrdem(){
         if (!isEmpty()){
-            System.out.print(this.ele.getDado() + "  ");
+            System.out.print(this.ele.getValor() + "  ");
             if (this.esq != null){
                 this.esq.imprimirPreOrdem();
             }
@@ -173,7 +173,7 @@ public class ArvoreAVL {
             if (this.esq != null){
                 this.esq.imprimirInOrdem();
             }
-            System.out.print(this.ele.getDado() + "  ");
+            System.out.print(this.ele.getInfo() + "  ");
             if (this.dir != null){
                 this.dir.imprimirInOrdem();
             }
@@ -182,13 +182,13 @@ public class ArvoreAVL {
 
     public void imprimirPosOrdem(){
         if (!isEmpty()){
-            if (this.dir != null){
-                this.dir.imprimirPosOrdem();
-            }
             if (this.esq != null){
                 this.esq.imprimirPosOrdem();
             }
-            System.out.print(this.ele.getDado() + "  ");
+            if (this.dir != null){
+                this.dir.imprimirPosOrdem();
+            }
+            System.out.print(this.ele.getValor() + "  ");
         }
     }
 
@@ -199,7 +199,7 @@ public class ArvoreAVL {
         }
         else{
             ArvoreAVL novaArvore = new ArvoreAVL(novo);
-            if (novo.getDado() < this.ele.getDado()){ // vou inserir na descendencia esquerda
+            if (novo.getValor() < this.ele.getValor()){ // vou inserir na descendencia esquerda
                 if (this.esq == null){ // sou um nó folha?
                     this.esq = novaArvore;
                     //System.out.println("Inseri o elemento "+ novo.getValor()+ " à esquerda de "+this.ele.getValor());
@@ -208,7 +208,7 @@ public class ArvoreAVL {
                     this.esq = this.esq.inserir(novo); // repassei a resposnabilidade pra sub-árvore esquerda
                 }
             }
-            else if (novo.getDado() > this.ele.getDado()){ // vou inserir na descendenia direita
+            else if (novo.getValor() > this.ele.getValor()){ // vou inserir na descendenia direita
                 if (this.dir == null){
                     this.dir = novaArvore;
                     //System.out.println("Inseri o elemento "+ novo.getValor()+ " à direita de "+this.ele.getValor());
@@ -224,7 +224,7 @@ public class ArvoreAVL {
 
     public ArvoreAVL remover(int elemento){
         // caso 1 - achei o elemento e ele não tem filhos
-        if (this.ele.getDado() == elemento){
+        if (this.ele.getValor() == elemento){
             // ele é uma folha
             if (this.esq == null && this.dir == null){
                 return null;
@@ -247,7 +247,7 @@ public class ArvoreAVL {
                         aux = aux.esq;
                     }
                     this.setElemento(aux.getElemento());  // troco os valores
-                    aux.getElemento().setDado(elemento);
+                    aux.getElemento().setValor(elemento);
                     // faço a árvore da direita receber a remoção do elemento (que vai estar numa folha)
                     this.dir = dir.remover(elemento);
                 }
@@ -255,13 +255,13 @@ public class ArvoreAVL {
         }
         else{
             // caso 2 - o elemento é menor, então vou removê-lo na esquerda
-            if (elemento < this.ele.getDado() ){
+            if (elemento < this.ele.getValor() ){
                 if (this.esq != null){
                     this.esq = this.esq.remover(elemento);
                 }
             }
             // caso 3 - o elemento é maior, então vou removê-lo na direita
-            else if (elemento > this.ele.getDado()){
+            else if (elemento > this.ele.getValor()){
                 if (this.dir != null){
                     this.dir = this.dir.remover(elemento);
                 }
@@ -276,11 +276,11 @@ public class ArvoreAVL {
         if (isEmpty()){
             return false;
         }
-        if (this.ele.getDado() == valor){
+        if (this.ele.getValor() == valor){
             return true;
         }
-        else{
-            if (valor < this.ele.getDado() ){
+        else {
+            if (valor < this.ele.getValor() ) {
                 if (this.esq == null){
                     return false;
                 }
@@ -288,7 +288,7 @@ public class ArvoreAVL {
                     return this.esq.busca(valor); // repassei a responsabilidade para a subarvore esquerda
                 }
             }
-            else if (valor > this.ele.getDado()){
+            else if (valor > this.ele.getValor()){
                 if (this.dir == null){
                     return false;
                 }
@@ -357,6 +357,6 @@ public class ArvoreAVL {
     }
 
     public String toString(){
-        return "["+this.ele.getDado()+"] ("+this.bal+")";
+        return "["+this.ele.getValor()+"] ("+this.bal+")";
     }
 }
