@@ -8,13 +8,13 @@ public class Main_AVL {
         AVL avl = new AVL();
 
         avl.insere_elemento(10);
+        avl.insere_elemento(8);
         avl.insere_elemento(5);
-        avl.insere_elemento(1);
+        avl.insere_elemento(9);
         avl.insere_elemento(7);
-        avl.insere_elemento(2);
+        avl.insere_elemento(18);
+        avl.insere_elemento(13);
         avl.insere_elemento(20);
-        avl.insere_elemento(33);
-        avl.insere_elemento(30);
 
 
         /*System.out.println("INORDER");
