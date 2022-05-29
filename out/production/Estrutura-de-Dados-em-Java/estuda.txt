@@ -1,0 +1,4 @@
+Stack - LIFO (Last In First Out)
+Queue - FIFO (First in First Out)
+
+Para que haja transmissão é necessário que exista um transmissor, um receptor, um meio e um sinal

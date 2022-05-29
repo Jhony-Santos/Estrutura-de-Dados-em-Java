@@ -1,3 +1,10 @@
+
+
+
+// Trabalho desenvolvido, revisado e refatorado por:
+// JHONATAN BATISTA DOS SANTOS E VINICIUS CARVAHO LEPREVOST
+
+
 package AVL;
 
 public class ArvoreAVL {
@@ -138,7 +145,7 @@ public class ArvoreAVL {
         ArvoreAVL filhoEsq     = this.getEsquerda();
         ArvoreAVL filhoDoFilho = filhoEsq.getDireita();
         ArvoreAVL noInserido   = filhoDoFilho.getEsquerda();
-        // parte 1: alinhar os caras
+        // parte 1: alinhar
         filhoEsq.setDireita(noInserido);
         filhoDoFilho.setEsquerda(filhoEsq);
         this.setEsquerda(filhoDoFilho);
@@ -239,8 +246,8 @@ public class ArvoreAVL {
                 else if (this.dir != null && this.esq == null){
                     return this.dir;
                 }
-                // tem os 2 filhos!! :o
-                // o que fazer? (assumo o maior dentre os menores ou vice-versa)
+                // tem os 2 filhos!!assumo o maior dentre os menores ou vice-versa
+
                 else{
                     ArvoreAVL aux = this.dir;
                     while (aux.esq != null){
@@ -359,4 +366,6 @@ public class ArvoreAVL {
     public String toString(){
         return "["+this.ele.getValor()+"] ("+this.bal+")";
     }
+
+
 }

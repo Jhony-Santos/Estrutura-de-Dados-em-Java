@@ -1,3 +1,8 @@
+
+
+// Trabalho desenvolvido, revisado e refatorado por:
+// JHONATAN BATISTA DOS SANTOS E VINICIUS CARVAHO LEPREVOST
+
 package AVL;
 
 import java.io.*;
@@ -6,7 +11,7 @@ import java.util.HashMap;
 public class Arvore_Main {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        buscarTermo("C:\\Users\\jntd\\Downloads\\arquivos", "fabricio");
+        buscarTermo("C:\\Users\\jntd\\Downloads\\arquivos", "loraine");
     }
 
 
@@ -67,7 +72,10 @@ public class Arvore_Main {
         System.out.println("Altura da árvore: " + arvore.calcularAltura());
         System.out.println("Valor da busca existe: " + arvore.busca(14));
 
+
         arvore.isEmpty();
         arvore.calcularAltura();
+
+
     }
 }

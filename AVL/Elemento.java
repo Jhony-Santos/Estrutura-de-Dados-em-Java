@@ -1,7 +1,9 @@
+// Trabalho desenvolvido, revisado e refatorado por:
+// JHONATAN BATISTA DOS SANTOS E VINICIUS CARVAHO LEPREVOST
+
 package AVL;
 
-
-public class Elemento{
+public class Elemento {
 
     private String info;
     private int dado;
