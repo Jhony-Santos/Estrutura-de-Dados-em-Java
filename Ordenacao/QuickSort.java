@@ -1,7 +1,7 @@
 package Ordenacao;
 
-import java.util.Random;
-import java.util.Scanner;
+import javax.xml.bind.SchemaOutputResolver;
+import java.util.*;
 
 public class QuickSort {
 
@@ -91,12 +91,36 @@ public class QuickSort {
         Random random = new Random();
 
         for (int i =0; i< array.length;i++){
-            array[i]=random.nextInt(100000);
+            array[i]=random.nextInt(1000);
 
         }
 
-        System.out.print("Array escolhido pelo usuário: ");
+        int [] array_ordenado_decrescente = array.clone();
+
+
+        System.out.print("Array totalmente desordenado: ");
         printArray(array,tamanho_array);
+
+
+        quickSort(array, 0, tamanho_array - 1);
+        System.out.print("Array ordenado: ");
+        printArray(array,tamanho_array);
+
+
+        int[] array2 = new int[tamanho_array];
+
+
+        int tamanho=tamanho_array;
+
+
+        for(int i=0; i<array.length; i++){
+
+            array2[tamanho-1]=array[i];
+            tamanho = tamanho - 1;
+        }
+
+        System.out.print("Conjunto ordenado em ordem decrescente: ");
+        printArray(array2,tamanho_array);
 
 
 
