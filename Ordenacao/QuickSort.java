@@ -72,14 +72,12 @@ public class QuickSort {
     public static void main(String[] args)
     {
 
-        int[] arr = { 25, 57, 48, 37, 12, 92, 86, 33 };
+        /*int[] arr = { 25, 57, 48, 37, 12, 92, 86, 33 };
         int n = arr.length;
 
         quickSort(arr, 0, n - 1);
         System.out.println("Sorted array: ");
-        printArray(arr, n);
-
-
+        printArray(arr, n);*/
 
 
         Scanner scan = new Scanner(System.in);
@@ -121,6 +119,34 @@ public class QuickSort {
 
         System.out.print("Conjunto ordenado em ordem decrescente: ");
         printArray(array2,tamanho_array);
+
+
+
+
+        int [] array3 = array.clone();
+
+        double porcentagem = tamanho_array * 0.05;
+
+
+
+        for(double i=0;i<=porcentagem; i++){
+
+            int x = random.nextInt(tamanho_array);
+            int y = random.nextInt(tamanho_array);
+
+            int aux;
+            aux=array3[x];
+            array3[x]=array3[y];
+            array3[y]=aux;
+        }
+
+
+
+        System.out.println("5% a 10% das chaves fora de posição: ");
+        printArray(array3,tamanho_array);
+
+        System.out.println(porcentagem);
+
 
 
 
